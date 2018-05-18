@@ -1,5 +1,3 @@
-import os
-import signal
 import sublime
 import sublime_plugin
 from time import sleep
@@ -9,7 +7,8 @@ class StopAnnoyingMe(sublime_plugin.EventListener):
     def run(self, edit):
         pass
 
-    def on_post_save_async(self, view):
+    def on_pre_save_async(self, view):
+        sleep(0.25)
         command = "wmctrl -lx"
         command = shlex.split(command)
         p = subprocess.Popen(command, stdout=subprocess.PIPE)
@@ -24,5 +23,4 @@ class StopAnnoyingMe(sublime_plugin.EventListener):
                 command = "wmctrl -ic " + w[0][2:]
                 command = shlex.split(command)
                 subprocess.Popen(command)
-                print(command)
                 break;

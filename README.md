@@ -1,4 +1,5 @@
 # Installation instructions
+`sudo apt install wmctrl`
 `git clone https://github.com/gstavrinos/sublime_license_killer`
 `cp sublime_license_killer/die_popup_die.py ~/.config/sublime-text-3/Packages/User`
 ##### Remove the cloned folder (optional)
